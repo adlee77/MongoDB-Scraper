@@ -1,30 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="/saved-articles">Saved Articles</a>
+            <a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="/saved-articles">Saved Articles</a>
         </div>
     </div>
 </nav>
 <div class="container">
+    <div class="header">
     <div class="row">
         <div class="col text-center">
-            <h1>NPR Music News Scraper</h1>
+            <h1 id="title">NPR Music News Scraper</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col text-center">
-            <button type="button" id="generate" class="btn btn-primary">Scrape New Articles</button>
-        </div>
     </div>
     <br>
 
-{{#each npr}}
-<div id="articles" class="card">
+    {{#each npr}}
+    <div id="articles" class="card">
         <div class="row">
             <div class="col-4">
                 <img src="{{image}}" alt="News Image">
@@ -40,57 +37,75 @@
                 <p class="card-text">{{summary}}</p>
             </div>
         </div>
-    </div>
-        <div class="row">
-            <div class="col text-right">
-                <button type="button" data-id="{{id}}" class="btn btn-primary delete">Delete</button>
-                <button type="button" news-title="{{title}}" data-id="{{id}}" class="btn btn-primary comment" data-toggle="modal" data-target="#noteModal">Leave Note</button>
-                <button type="button" news-title="{{title}}" data-id="{{id}}" class="btn btn-primary view" data-toggle="modal" data-target="#seeNoteModal">See Notes</button>
-            </div>
+    <div class="row">
+        <div class="col">
+            <button type="button" data-id="{{id}}" class="btn delete">Delete</button>
+            <button type="button" news-title="{{title}}" data-id="{{id}}" class="btn comment"
+                data-toggle="modal" data-target="#noteModal">Leave Note</button>
+            <button type="button" news-title="{{title}}" data-id="{{id}}" class="btn view"
+                data-toggle="modal" data-target="#seeNoteModal">See Notes</button>
         </div>
-{{/each}}
+    </div>
+    </div>
+    <br>
+    {{/each}}
 
-{{!-- Modal for leaving a note --}}
-<div class="modal" id="noteModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <textarea class="form-control noteSubject"></textarea>
-                <textarea class="form-control noteBody"></textarea>
-            </div>
-            <div class="modal-footer">
-                <p class="modal-title-id"></p>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary saveNote">Save changes</button>
+    {{!-- Modal for leaving a note --}}
+    <div class="modal" id="noteModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Subject:</p>
+                        </div>
+                        <div class="col-10">
+                            <input class="form-control noteSubject"></input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Body:</p>
+                        </div>
+                        <div class="col-10">
+                            <textarea class="form-control noteBody"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p class="modal-title-id"></p>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary saveNote">Save changes</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-{{!-- Modal for seeing notes --}}
-<div class="modal" id="seeNoteModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <textarea class="form-control noteSubject"></textarea>
-                <textarea class="form-control noteBody"></textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary saveNote">Save changes</button>
+    {{!-- Modal for seeing notes --}}
+    <div class="modal" id="seeNoteModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{#each Note}}
+                    <h3>{{subject}}</h3>
+                    {{/each}}
+                </div>
+                <div class="modal-footer">
+                    <p class="modal-title-id"></p>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>

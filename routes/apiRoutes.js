@@ -45,6 +45,7 @@ module.exports = function(app){
             res.json(data)
         })
     })
+
     app.put("/api/article/:id", (req, res)=>{
         db.Article.update({_id: req.params.id}, {saved: true}).then((data)=>{
             res.json(data)
@@ -69,3 +70,14 @@ module.exports = function(app){
           });
     })
 }
+// app.get("/note/saved/:id", (req,res)=>{
+//     db.Note.find({_id: req.params.id}).then((data)=>{
+//         const noteSaved = data.map(data =>{
+//             return {
+//                 subject: data.subject,
+//                 body: data.body
+//             }
+//         })
+//         res.render('saved', {Note: noteSaved})
+//     })
+// })

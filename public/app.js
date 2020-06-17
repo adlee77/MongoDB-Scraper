@@ -44,5 +44,18 @@ $(".saveNote").on("click", function() {
         data: note
     }).then(()=>{
         $("textarea").val("")
+        $("input").val("")
+    })
+})
+$(".view").on("click", function(){
+    const dataId = $(this).attr("data-id")
+    const newsTitle = $(this).attr("news-title")
+    $(".modal-title-id").html(dataId)
+    $(".modal-title").html(newsTitle)
+    $.ajax({
+        method: "GET",
+        url: "/note/saved/" + $(".modal-title-id").html(),
+    }).then((data)=>{
+        console.log(data)
     })
 })

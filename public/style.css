@@ -1,4 +1,42 @@
-.save {
+body{
+    background-image: url("blue.jpg");
+}
+nav {
+    background-color: #6C757D;
+    height: 80px;
+}
+h3{
+    color: gray;
+}
+.container {
     position: relative;
+    top: 30px;
+}
+.nav-item {
+    color: white;
+}
+.header {
+    background-image: url("https://s3.amazonaws.com/wmfeimages/wp-content/uploads/2020/03/30220256/20200226-_dsc6170-6-copy_wide-d1337c9cb0d058a1e125239683e662a9c34a16dd.jpg");
+    height: 500px;
 
+}
+#title {
+    color: white;
+    text-shadow: black 1px 0 10px;
+}
+.card {
+    box-shadow: black 0 0 5px;
+    height: 270px;
+    background-color: whitesmoke;
+}
+.save, .delete, .comment, .view {
+    box-shadow: black 0px 2px 5px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    background-color: #1083D4;
+    color: white;
+}
+#generate {
+    box-shadow: black 0px 2px 5px;
 }

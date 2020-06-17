@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -11,14 +11,17 @@
     </div>
 </nav>
 <div class="container">
-    <div class="row">
-        <div class="col text-center">
-            <h1>NPR Music News Scraper</h1>
+    <div class="header">
+        <div class="row">
+            <div class="col text-center">
+                <h1 id="title">NPR Music News Scraper</h1>
+            </div>
         </div>
     </div>
+    <br>
     <div class="row">
         <div class="col text-center">
-            <button type="button" id="generate" class="btn btn-primary">Scrape New Articles</button>
+            <button type="button" id="generate" class="btn btn-secondary">Scrape New Articles</button>
         </div>
     </div>
     <br>
@@ -31,7 +34,7 @@
             <div class="col-4">
                 <img src="{{image}}" alt="News Image">
             </div>
-            <div class="col-4">
+            <div class="col-8">
                 <a href="{{link}}">
                     <h3>{{title}}</h3>
                 </a>
@@ -42,11 +45,12 @@
                 <p class="card-text">{{summary}}</p>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col text-right">
-            <button type="button" data-id="{{id}}" class="btn btn-primary save">Save</button>
+        <div class="row">
+            <div class="col">
+                <button type="button" data-id="{{id}}" class="btn save">Save</button>
+            </div>
         </div>
     </div>
+    <br>
     {{/each}}
 </div>
