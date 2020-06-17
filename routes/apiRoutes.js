@@ -30,7 +30,7 @@ module.exports = function(app){
     }
     })
 
-    db.Article.remove().then(()=>{
+    db.Article.remove({saved: false}).then(()=>{
         db.Article.create(results).then(
             (results)=>{
                 res.json(results)
@@ -69,15 +69,19 @@ module.exports = function(app){
             res.json(err);
           });
     })
+app.get("/note/saved/:id", (req,res)=>{
+    db.Article.find({_id: req.params.id}).populate('note').then((data)=>{
+        const noteSaved = data[0].note.map(data =>{
+            return {
+                id: data.id,
+                subject: data.subject,
+                body: data.body
+            }
+        })
+        console.log(noteSaved)
+        // let safeData = JSON.stringify(data[0].note)
+        // var parsedData = JSON.parse(safeData)
+        res.send(noteSaved)
+    })
+})
 }
-// app.get("/note/saved/:id", (req,res)=>{
-//     db.Note.find({_id: req.params.id}).then((data)=>{
-//         const noteSaved = data.map(data =>{
-//             return {
-//                 subject: data.subject,
-//                 body: data.body
-//             }
-//         })
-//         res.render('saved', {Note: noteSaved})
-//     })
-// })

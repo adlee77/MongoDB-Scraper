@@ -10,10 +10,18 @@ h3{
 }
 .container {
     position: relative;
-    top: 30px;
+    top: 35px;
 }
-.nav-item {
+.nav-item, .navbar-brand {
     color: white;
+    font-family: Palatino, serif;
+}
+.navbar-toggler {
+    background-color: white;
+}
+.navbar-nav {
+    position: relative;
+    left: 70%;
 }
 .header {
     background-image: url("https://s3.amazonaws.com/wmfeimages/wp-content/uploads/2020/03/30220256/20200226-_dsc6170-6-copy_wide-d1337c9cb0d058a1e125239683e662a9c34a16dd.jpg");
@@ -22,7 +30,7 @@ h3{
 }
 #title {
     color: white;
-    text-shadow: black 1px 0 10px;
+    text-shadow: black 1px 0 20px;
 }
 .card {
     box-shadow: black 0 0 5px;

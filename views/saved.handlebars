@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg">
+    <p class="navbar-brand">NPR Music News</p>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,7 +42,7 @@
         <div class="col">
             <button type="button" data-id="{{id}}" class="btn delete">Delete</button>
             <button type="button" news-title="{{title}}" data-id="{{id}}" class="btn comment"
-                data-toggle="modal" data-target="#noteModal">Leave Note</button>
+                data-toggle="modal" data-target="#noteModal">Write Note</button>
             <button type="button" news-title="{{title}}" data-id="{{id}}" class="btn view"
                 data-toggle="modal" data-target="#seeNoteModal">See Notes</button>
         </div>
@@ -97,10 +98,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    {{#each Note}}
-                    <h3>{{subject}}</h3>
-                    {{/each}}
+                <div class="modal-body modal-body-saved">
                 </div>
                 <div class="modal-footer">
                     <p class="modal-title-id"></p>

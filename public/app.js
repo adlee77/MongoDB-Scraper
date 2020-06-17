@@ -56,6 +56,6 @@ $(".view").on("click", function(){
         method: "GET",
         url: "/note/saved/" + $(".modal-title-id").html(),
     }).then((data)=>{
-        console.log(data)
+        console.log(data[0].subject)
     })
 })
