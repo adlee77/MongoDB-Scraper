@@ -9,8 +9,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(express.static('public'))
 
-var htmlRoutes = require("./Routes/htmlRoutes")(app)
-var apiRoutes = require("./Routes/apiRoutes")(app)
+require("./Routes/htmlRoutes")(app)
+require("./Routes/apiRoutes")(app)
 
 app.engine('handlebars', exphbs({defaultLayout: "main"}))
 app.set('view engine', 'handlebars')
