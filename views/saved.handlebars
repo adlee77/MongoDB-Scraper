@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/">Scrape Articles <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active" href="/saved-articles">Saved Articles</a>
         </div>
     </div>
@@ -50,6 +50,7 @@
     </div>
     <br>
     {{/each}}
+    <h1>{{noSaved}}</h1>
 
     {{!-- Modal for leaving a note --}}
     <div class="modal" id="noteModal" tabindex="-1" role="dialog">
