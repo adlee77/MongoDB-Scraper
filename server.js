@@ -19,9 +19,7 @@ app.use(express.static("public"))
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/nprMusic";
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://adlee7:<Portland0>@ds119608.mlab.com:19608/heroku_35jhh70b", {
-    useMongoClient: true
-});
+mongoose.connect(MONGODB_URI);
 
 app.listen(PORT, function(){
     console.log("Listening on http://localhost:" + PORT)
