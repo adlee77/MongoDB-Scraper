@@ -48,3 +48,19 @@ h3{
 #generate {
     box-shadow: black 0px 2px 5px;
 }
+.noteSubject, p {
+    font-size: 14px;
+    font-family:serif;
+}
+.noteCard {
+    height: 100%;
+}
+#deleteNote {
+    position: relative;
+    right: 45%;
+    top: 5%;
+}
+#edit {
+    position: relative;
+    top: 5%;
+}
