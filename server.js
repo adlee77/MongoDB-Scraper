@@ -19,7 +19,8 @@ app.use(express.static("public"))
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/nprMusic";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
+// mongoose.connect(MONGODB_URI);
 
 app.listen(PORT, function(){
     console.log("Listening on http://localhost:" + PORT)

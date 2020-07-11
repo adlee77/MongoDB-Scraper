@@ -84,4 +84,12 @@ app.get("/note/saved/:id", (req,res)=>{
         res.send(noteSaved)
     })
 })
+app.delete("/note/delete/:id", (req,res)=>{
+    db.Note.remove({_id: req.params.id})
+    .then((data)=>{
+        res.json(data)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
 }

@@ -31,9 +31,6 @@ module.exports = function (app) {
             if (data) {
                 res.render('saved', { npr: nprSaved })
             }
-            else {
-                res.render('saved', { noSaved: "No Saved Articles" })
-            }
         })
     })
 }

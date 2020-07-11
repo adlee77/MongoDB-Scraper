@@ -57,10 +57,11 @@ h3{
 }
 #deleteNote {
     position: relative;
-    right: 45%;
+    left: 50%;
     top: 5%;
 }
 #edit {
     position: relative;
     top: 5%;
+    left: 75%;
 }
