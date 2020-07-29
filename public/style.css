@@ -11,6 +11,7 @@ h3{
 #navTitle {
     position: relative;
     top: 10px;
+    left: 15px;
 }
 .container {
     position: relative;
