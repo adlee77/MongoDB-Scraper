@@ -8,6 +8,10 @@ nav {
 h3{
     color: gray;
 }
+#navTitle {
+    position: relative;
+    top: 10px;
+}
 .container {
     position: relative;
     top: 35px;
