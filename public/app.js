@@ -54,7 +54,8 @@ $('body').on('click', '#deleteNote', function(e) {
         url: "/note/delete/" + dataId,
         method: "DELETE"
     }).then(()=>{
-        modal
+        alert("Note was Deleted")
+        location.reload()
     })
 });
 $(".view").on("click", function(){
@@ -91,9 +92,3 @@ $(".view").on("click", function(){
         }
     })
 })
-
-
-
-// $("#deleteNote").on("click", function(){
-//     console.log('clicked')
-// })
