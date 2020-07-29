@@ -28,6 +28,7 @@ module.exports = function (app) {
                     id: data._id
                 }
             })
+            const noSaved = { nothing: "No Saved Articles" }
             if (data) {
                 res.render('saved', { npr: nprSaved })
             }
